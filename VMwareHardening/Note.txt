@@ -1,0 +1,10 @@
+Do expect errors since I do not have VSphere to test out.
+All the scripts are based of an estimated output from the audit command.
+There may be some incorrect naming, but changing them based on the $command/$result output
+should solve the issue.
+
+Within the Manual.txt, those are the ones that are manual.
+Some manual can be done automated. 
+But you will be given the choice to do it manually or automated.
+
+CIS did not provide the steps for auditing and remediating for most Manual benchmarks.

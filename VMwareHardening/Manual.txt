@@ -1,0 +1,559 @@
+1.1 (L1) Host hardware must have auditable, authentic, and up to date system & device firmware (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+1.2 (L1) Host hardware must enable UEFI Secure Boot (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+1.3 (L1) Host hardware must enable Intel TXT, if available (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+1.4 (L1) Host hardware must enable and configure a TPM 2.0 (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+1.5 (L1) Host integrated hardware management controller must be secure (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+1.6 (L1) Host integrated hardware management controller must enable time synchronization (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+1.7 (L1) Host integrated hardware management controller must enable remote logging of events (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+1.8 (L1) Host integrated hardware management controller must secure authentication (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+1.9 (L2) Host hardware must enable AMD SEV-ES, if available (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+1.10 (L2) Host hardware must enable Intel SGX, if available (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+1.11 (L2) Host hardware must secure unused external hardware ports (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+1.12 (L2) Host integrated hardware management controller must deactivate internal networking (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+2.1 (L1) Host must run software that has not reached End of General Support status (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+2.2 (L1) Host must have all software updates installed (Manual) 
+Run 2.2 Script
+
+
+2.3 (L1) Host must enable Secure Boot enforcement (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+2.5 (L1) Host must only run binaries delivered via signed VIB (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+2.7 (L1) Host must have time synchronization services enabled and running (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+2.8 (L1) Host must require TPM-based configuration encryption (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+2.9 (L1) Host must not suppress warnings about unmitigated hyperthreading vulnerabilities (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+2.11 (L1) Host must use sufficient entropy for cryptographic operations (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+2.12 (L2) Host must enable volatile key destruction (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+3.4 (L1) Host must deactivate SLP (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+3.5 (L1) Host must deactivate CIM (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+3.6 (L1) Host should deactivate SNMP (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+3.10 (L1) Host must not suppress warnings that the shell is enabled (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+3.11 (L1) Host must enforce password complexity (Manual) 
+Audit: 
+To confirm password complexity requirements are set, perform the following: 
+1. Login to the ESXi shell as a user with administrator privileges. 
+2. Open /etc/pam.d/passwd. 
+3. Locate the following line: 
+   password requisite /lib/security/$ISA/pam_passwdqc.so retry=N min=N0,N1,N2,N3,N4 
+4. Confirm N0 is set to disabled. 
+5. Confirm N1 is set to disabled. 
+6. Confirm N2 is set to disabled. 
+7. Confirm N3 is set to disabled. 
+8. Confirm N4 is set to 14 or greater. 
+The above requires all passwords to be 14 or more characters long and comprised of at 
+least one character from four distinct character sets. 
+
+Remediation: 
+To set the password complexity requirements, perform the following: 
+Page 70 
+1. Login to the ESXi shell as a user with administrator privileges. 
+2. Open /etc./pam.d/passwd. 
+3. Locate the following line: 
+   password requisite /lib/security/$ISA/pam_passwdqc.so retry=N min=N0,N1,N2,N3,N4 
+4. Set N0 to disabled. 
+5. Set N1 to disabled. 
+6. Set N2 to disabled. 
+7. Set N3 to disabled. 
+8. Set N4 to 14 or greater. 
+The above requires all passwords to be 14 or more characters long and comprised of at 
+least one character from four distinct character sets. 
+
+3.14 (L1) Host must configure the password history setting to restrict the reuse of passwords (Manual) 
+Run the 3.14 script
+
+
+3.15 (L1) Host must be configured with an appropriate maximum password age (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+3.16 (L1) Host must configure a session timeout for the API (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+3.17 (L1) Host must automatically terminate idle host client sessions (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+3.18 (L1) Host must have an accurate DCUI.Access list (Manual) 
+Run the 3.18 script
+
+
+3.19 (L1) Host must have an accurate Exception Users list (Manual)
+Audit: 
+To verify the membership of the "Exception Users" list, perform the following in the 
+vSphere Web Client: 
+1. Select the host. 
+2. Click on Configure then expand System and select Security Profile. 
+3. Under Lockdown Mode view and verify the list of Exception Users for accuracy. 
+
+Remediation: 
+To correct the membership of the Exception Users list, perform the following in the 
+vSphere Web Client: 
+1. Select the host. 
+2. Click on Configure then expand System and select Security Profile. 
+3. Select Edit next to Lockdown Mode. 
+4. Click on Exception Users. 
+5. Add or delete users as appropriate. 
+6. Click OK.
+
+
+3.22 (L1) Host must deny shell access for the dcui account (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+3.23 (L2) Host must deny shell access for the vpxuser account (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+3.24 (L1) Host must display a login banner for the DCUI and Host Client (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+3.25 (L1) Host must display a login banner for SSH connections (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+3.26 (L1) Host must enable the highest version of TLS supported (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+4.1 (L1) Host must configure a persistent log location for all locally stored system logs (Manual) 
+Run the 4.1 script
+
+
+4.3 (L1) Host must log sufficient information for events (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+4.4 (L1) Host must set the logging informational level to info 
+(Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+4.5 (L1) Host must deactivate log filtering (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+4.6 (L1) Host must enable audit record logging (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+4.7 (L1) Host must configure a persistent log location for all locally 
+stored audit records (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+4.8 (L1) Host must store one week of audit records (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+4.9 (L1) Host must transmit audit records to a remote log collector 
+(Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+4.10 (L1) Host must verify certificates for TLS remote logging 
+endpoints (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+4.11 (L1) Host must use strict x509 verification for TLS-enabled 
+remote logging endpoints (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+5.1 (L1) Host firewall must only allow traffic from authorized networks (Manual)
+Run the 5.1 script
+
+
+5.2 (L1) Host must block network traffic by default (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+5.3 (L1) Host must restrict use of the dvFilter network API (Manual) 
+Run the 5.3 script
+
+
+5.4 (L1) Host must filter Bridge Protocol Data Unit (BPDU) packets (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+5.5 (L2) Host should deactivate virtual hardware management network interfaces (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+5.11 (L1) Host must isolate management communications (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+6.1.1 (L1) Host CIM services, if enabled, must limit access (Manual) 
+Run the 6.1.1 script
+
+
+6.2.1 (L1) Host must isolate storage communications (Manual)
+Audit: 
+The audit procedures to verify SAN activity is properly segregated are SAN vendor or 
+product-specific. 
+
+Remediation: 
+The remediation procedures to properly segregate SAN activity are SAN vendor or 
+product-specific. 
+In general, with ESXi hosts, use a single-initiator zoning or a single-initiator-single-target 
+zoning. The latter is a preferred zoning practice. Using the more restrictive zoning 
+prevents problems and misconfigurations that can occur on the SAN. 
+
+
+6.2.2 (L1) Host must ensure all datastores have unique names (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+6.3.2 (L1) Host iSCSI client, if enabled, must employ unique CHAP authentication secrets (Manual) 
+Run the 6.3.2 script
+
+
+6.4.1 (L1) Host SNMP services, if enabled, must limit access (Manual) 
+Run the 6.4.1 script
+
+
+6.5.1 (L1) Host SSH daemon, if enabled, must use FIPS 140-2/140-3 validated ciphers (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+6.5.2 (L1) Host SSH daemon, if enabled, must use FIPS 140-2/140-3 validated cryptographic modules (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+
+6.5.3 (L1) Host SSH daemon, if enabled, must not allow use of gateway ports (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+6.5.4 (L1) Host SSH daemon, if enabled, must not allow host-based authentication (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+6.5.5 (L1) Host SSH daemon, if enabled, must set a timeout count on idle sessions (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+6.5.6 (L1) Host SSH daemon, if enabled, must set a timeout interval on idle sessions (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+6.5.7 (L1) Host SSH daemon, if enabled, must display the system login banner before granting access (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+6.5.8 (L1) Host SSH daemon, if enabled, must ignore .rhosts files (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+6.5.9 (L1) Host SSH daemon, if enabled, must disable stream local forwarding (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+6.5.10 (L1) Host SSH daemon, if enabled, must disable TCP forwarding (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+6.5.11 (L1) Host SSH daemon, if enabled, must not permit tunnels (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+6.5.12 (L1) Host SSH daemon, if enabled, must not permit user environment settings (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+7.1 (L1) Virtual machines must enable Secure Boot (Manual)
+Run the 7.1 script
+
+
+7.2 (L1) Virtual machines must require encryption for vMotion (Manual)
+Run the 7.2 script
+
+
+7.3 (L1) Virtual machines must require encryption for Fault Tolerance (Manual) 
+Run the 7.3 script
+
+
+7.5 (L1) Virtual machines must be configured to lock when the last console connection is closed (Manual) 
+Run the 7.5 script
+
+
+7.9 (L1) Virtual machines must remove unnecessary audio devices (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+7.10 (L1) Virtual machines must remove unnecessary AHCI devices (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+7.19 (L1) Virtual machines must limit access through the "dvfilter" network API (Manual) 
+Audit: 
+To verify this information utilize the vSphere interface as follows: 
+1. Select the VM then select Actions followed by Edit Settings. 
+2. Click on the VM Options tab then expand Advanced. 
+3. Click on EDIT CONFIGURATION. 
+4. Verify that ethernet0.filter1.name = dv-filter1 where ethernet0 is the 
+   network adapter interface of the virtual machine that is to be protected, filter1 
+   is the number of the filter that is being used, and dv-filter1 is the name of the 
+   particular data path kernel module that is protecting the VM. 
+   • If dvfilter access should not be permitted: Verify that the following is NOT listed 
+     ethernet0.filter1.name = dv-filter. 
+5. Ensure that the name of the data path kernel is set correctly. 
+
+You may also perform the following to determine if dvfilter access should be permitted 
+via the VMX file:
+1. Verify that the following is in the VMX file: ethernet0.filter1.name = dv
+   filter1 where ethernet0 is the network adapter interface of the virtual machine 
+   that is to be protected, filter1 is the number of the filter that is being used, and 
+   dv-filter1 is the name of the particular data path kernel module that is 
+   protecting the VM. 
+   • If dvfilter access should not be permitted: Verify that the following is not in the 
+     VMX file: ethernet0.filter1.name = dv-filter1. 
+2. Ensure that the name of the data path kernel is set correctly.
+
+Remediation:
+To set this configuration utilize the vSphere interface as follows: 
+1. Select the VM then select Actions followed by Edit Settings. 
+2. Click on the VM Options tab then expand Advanced. 
+3. Click on EDIT CONFIGURATION. 
+4. Remove the value from ethernet0.filter1.name = dv-filter. 
+   • Parameters are removed when no value is present 
+5. Click OK.
+
+You may also configure a VM to allow dvfilter access via the following method in the 
+VMX file: 
+1. Configure the following in the VMX file: ethernet0.filter1.name = dv-filter1 
+   where ethernet0 is the network adapter interface of the virtual machine that is to 
+   be protected, filter1 is the number of the filter that is being used, and dv-filter1 
+   is the name of the particular data path kernel module that is protecting the VM. 
+   • If dvfilter access should not be permitted: Remove the following from its VMX 
+     file: ethernet0.filter1.name = dv-filter1. 
+2. Set the name of the data path kernel correctly. 
+
+
+7.22 (L1) Virtual machines must restrict sharing of memory pages with other VMs (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+7.24 (L1) Virtual machines must enable diagnostic logging 
+(Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+7.27 (L1) Virtual machines must limit informational messages from the virtual machine to the VMX file (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+7.28 (L2) Virtual machines should have virtual machine hardware version 19 or newer (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+8.1 (L1) VMware Tools must be a version that has not reached End of General Support status (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+8.2 (L1) VMware Tools must have all software updates installed (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+8.3 (L1) VMware Tools should configure automatic upgrades as appropriate for the environment (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+8.4 (L1) VMware Tools on deployed virtual machines must prevent being recustomized (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+8.5 (L1) VMware Tools must limit the automatic addition of features (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+8.6 (L1) VMware Tools must limit the automatic removal of features (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+8.7 (L1) VMware Tools must deactivate GlobalConf unless required (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+8.8 (L1) VMware Tools must deactivate ContainerInfo unless required (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+8.9 (L1) VMware Tools must deactivate Appinfo information gathering unless required (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+8.10 (L1) VMware Tools must deactivate Guest Store Upgrade operations unless required (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+8.11 (L1) VMware Tools must deactivate Service Discovery unless required (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+8.12 (L1) VMware Tools must limit the use of MSI transforms when reconfiguring VMware Tools (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+8.13 (L1) VMware Tools must enable VMware Tools logging (Manual)
+Audit: N/A
+Remediation: N/A
+
+
+8.14 (L1) VMware Tools must send VMware Tools logs to the system log service (Manual) 
+Audit: N/A
+Remediation: N/A
+
+
+8.15 (L2) VMware Tools must deactivate Guest Operations unless required (Manual) 
+Audit: N/A
+Remediation: N/A
